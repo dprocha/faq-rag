@@ -29,7 +29,7 @@ import java.util.Map;
 @Slf4j
 @Service
 @AllArgsConstructor
-public class DocsService {
+public class DocService {
 
     private static final int MAX_TOKENS_PER_CHUNK = 2000;
 
@@ -131,7 +131,7 @@ public class DocsService {
         for (String word : words) {
             int wordTokens = word.length() / 4;  // Rough estimate: 1 token = ~4 characters
 
-            if (tokenCount + wordTokens > DocsService.MAX_TOKENS_PER_CHUNK) {
+            if (tokenCount + wordTokens > DocService.MAX_TOKENS_PER_CHUNK) {
                 chunks.add(chunk.toString());
                 chunk.setLength(0); // Clear the buffer
                 tokenCount = 0;

@@ -1,6 +1,6 @@
 package com.mongodb.faq.rag.controller;
 
-import com.mongodb.faq.rag.service.DocsService;
+import com.mongodb.faq.rag.service.DocService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,20 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/docs")
 public class DocController {
 
-    private final DocsService docsService;
+    private final DocService docService;
 
-    public DocController(DocsService docsService) {
-        this.docsService = docsService;
+    public DocController(DocService docService) {
+        this.docService = docService;
     }
 
     @GetMapping("/load")
     public String loadDocuments() {
-        return docsService.loadDocs();
+        return docService.loadDocs();
     }
 
     @GetMapping("/embeddings")
     public void generateEmbeddings() {
-        docsService.generateEmbeddings();
+        docService.generateEmbeddings();
     }
 
 }
